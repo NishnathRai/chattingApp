@@ -27204,14 +27204,25 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _reactRouterDom = require("react-router-dom");
-var _home = require("./Components/Home");
+var _home = require("./src/Components/Home");
 var _homeDefault = parcelHelpers.interopDefault(_home);
+var _login = require("./src/Components/Login");
+var _loginDefault = parcelHelpers.interopDefault(_login);
+var _indexCss = require("./src/index.css");
 const router = (0, _reactRouterDom.createBrowserRouter)([
     {
         path: "/",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _homeDefault.default), {}, void 0, false, {
             fileName: "App.jsx",
-            lineNumber: 7,
+            lineNumber: 9,
+            columnNumber: 15
+        }, undefined)
+    },
+    {
+        path: "/login",
+        element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {}, void 0, false, {
+            fileName: "App.jsx",
+            lineNumber: 13,
             columnNumber: 15
         }, undefined)
     }
@@ -27221,7 +27232,7 @@ function App() {
         router: router
     }, void 0, false, {
         fileName: "App.jsx",
-        lineNumber: 14,
+        lineNumber: 20,
         columnNumber: 13
     }, this);
 }
@@ -27235,7 +27246,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe","./Components/Home":"3Sn0R"}],"gkKU3":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe","./src/Components/Home":"jIEVO","./src/Components/Login":"4lhPi","./src/index.css":"irmnC"}],"gkKU3":[function(require,module,exports,__globalThis) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -34617,11 +34628,11 @@ function persistAppliedTransitions(_window, transitions) {
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3Sn0R":[function(require,module,exports,__globalThis) {
-var $parcel$ReactRefreshHelpers$8a16 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jIEVO":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$0d4d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$8a16.prelude(module);
+$parcel$ReactRefreshHelpers$0d4d.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -34637,11 +34648,351 @@ exports.default = Home;
 var _c;
 $RefreshReg$(_c, "Home");
 
-  $parcel$ReactRefreshHelpers$8a16.postlude(module);
+  $parcel$ReactRefreshHelpers$0d4d.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["aQL8O","ju1lJ","adjPd"], "adjPd", "parcelRequire94c2")
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4lhPi":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$b8a2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$b8a2.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _loginCss = require("../../cssFiles/login.css");
+var _combainedButtons = require("./CombainedButtons");
+var _combainedButtonsDefault = parcelHelpers.interopDefault(_combainedButtons);
+var _input = require("./Input");
+var _inputDefault = parcelHelpers.interopDefault(_input);
+var _s = $RefreshSig$();
+function Login() {
+    _s();
+    let [index, setIndex] = (0, _react.useState)(0);
+    let [email, setEmail] = (0, _react.useState)("");
+    let [password, setPassword] = (0, _react.useState)("");
+    let [userName, setUserName] = (0, _react.useState)("");
+    let [remember, setRemember] = (0, _react.useState)();
+    let iteams = [
+        {
+            placeHolder: "Email",
+            svg: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+                xmlns: "http://www.w3.org/2000/svg",
+                height: "20",
+                width: "20",
+                viewBox: "0 0 512 512",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                    fill: "#000000",
+                    d: "M64 208.1L256 65.9 448 208.1l0 47.4L289.5 373c-9.7 7.2-21.4 11-33.5 11s-23.8-3.9-33.5-11L64 255.5l0-47.4zM256 0c-12.1 0-23.8 3.9-33.5 11L25.9 156.7C9.6 168.8 0 187.8 0 208.1L0 448c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-239.9c0-20.3-9.6-39.4-25.9-51.4L289.5 11C279.8 3.9 268.1 0 256 0z"
+                }, void 0, false, {
+                    fileName: "src/Components/Login.jsx",
+                    lineNumber: 14,
+                    columnNumber: 120
+                }, this)
+            }, void 0, false, {
+                fileName: "src/Components/Login.jsx",
+                lineNumber: 14,
+                columnNumber: 34
+            }, this),
+            v: email,
+            s: setEmail
+        },
+        {
+            placeHolder: "Password",
+            svg: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+                xmlns: "http://www.w3.org/2000/svg",
+                height: "20",
+                width: "20",
+                viewBox: "0 0 448 512",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                    fill: "#000000",
+                    d: "M144 144c0-44.2 35.8-80 80-80c31.9 0 59.4 18.6 72.3 45.7c7.6 16 26.7 22.8 42.6 15.2s22.8-26.7 15.2-42.6C331 33.7 281.5 0 224 0C144.5 0 80 64.5 80 144l0 48-16 0c-35.3 0-64 28.7-64 64L0 448c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-192c0-35.3-28.7-64-64-64l-240 0 0-48z"
+                }, void 0, false, {
+                    fileName: "src/Components/Login.jsx",
+                    lineNumber: 15,
+                    columnNumber: 123
+                }, this)
+            }, void 0, false, {
+                fileName: "src/Components/Login.jsx",
+                lineNumber: 15,
+                columnNumber: 37
+            }, this),
+            v: password,
+            s: setPassword
+        }
+    ];
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            style: centerBoxStyle,
+            className: "centerBox",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                    style: heading,
+                    children: "Together.in"
+                }, void 0, false, {
+                    fileName: "src/Components/Login.jsx",
+                    lineNumber: 22,
+                    columnNumber: 9
+                }, this),
+                (0, _combainedButtonsDefault.default)([
+                    "Sign in",
+                    "Sign up"
+                ], index, setIndex),
+                iteams.map((val, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _inputDefault.default), {
+                        value: val.v,
+                        setValue: val.s,
+                        placeHolder: val.placeHolder,
+                        svg: val.svg
+                    }, 12 + index, false, {
+                        fileName: "src/Components/Login.jsx",
+                        lineNumber: 24,
+                        columnNumber: 37
+                    }, this)),
+                index != 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _inputDefault.default), {
+                    value: userName,
+                    setValue: setUserName,
+                    placeHolder: "User Name",
+                    svg: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        height: "20",
+                        width: "20",
+                        viewBox: "0 0 448 512",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                            fill: "#000000",
+                            d: "M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
+                        }, void 0, false, {
+                            fileName: "src/Components/Login.jsx",
+                            lineNumber: 25,
+                            columnNumber: 183
+                        }, void 0)
+                    }, void 0, false, {
+                        fileName: "src/Components/Login.jsx",
+                        lineNumber: 25,
+                        columnNumber: 98
+                    }, void 0)
+                }, void 0, false, {
+                    fileName: "src/Components/Login.jsx",
+                    lineNumber: 25,
+                    columnNumber: 22
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                    checked: remember,
+                    onChange: (e)=>{
+                        setRemember(e.target.checked);
+                    },
+                    style: spanStyle,
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                            type: "checkbox"
+                        }, void 0, false, {
+                            fileName: "src/Components/Login.jsx",
+                            lineNumber: 26,
+                            columnNumber: 103
+                        }, this),
+                        "Remember Me"
+                    ]
+                }, void 0, true, {
+                    fileName: "src/Components/Login.jsx",
+                    lineNumber: 26,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    style: butStyle,
+                    children: "Submit"
+                }, void 0, false, {
+                    fileName: "src/Components/Login.jsx",
+                    lineNumber: 27,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/Components/Login.jsx",
+            lineNumber: 21,
+            columnNumber: 5
+        }, this)
+    }, void 0, false);
+}
+_s(Login, "yTMzLB+y/QEgx4LCtAVa8klJ5KA=");
+_c = Login;
+const centerBoxStyle = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
+    fontFamily: "Raleway",
+    gap: "15px",
+    position: "absolute",
+    top: "50vh",
+    left: "50vw",
+    transform: "translate(-50%,-50%)",
+    backgroundColor: "white",
+    height: "max-content",
+    padding: " 50px 50px 70px 50px",
+    borderRadius: "30px"
+};
+const heading = {
+    fontWeight: "bolder",
+    fontSize: "xx-large"
+};
+const butStyle = {
+    height: " max-content",
+    backgroundColor: "#0084ff",
+    padding: "15px 25px 15px 25px",
+    width: "300px",
+    fontWeight: "700",
+    borderRadius: "10px"
+};
+const spanStyle = {
+    display: "flex",
+    gap: "10px",
+    width: "300px",
+    paddingLeft: "10px"
+};
+exports.default = Login;
+var _c;
+$RefreshReg$(_c, "Login");
+
+  $parcel$ReactRefreshHelpers$b8a2.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../cssFiles/login.css":"3SlLG","./CombainedButtons":"bbRvi","./Input":"3K3vD"}],"3SlLG":[function() {},{}],"bbRvi":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$4c08 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$4c08.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+let buttonStyle = {
+    height: "max-content",
+    padding: "15px 25px 15px 25px",
+    borderRadius: "20px"
+};
+let outerBoxStyle = {
+    borderRadius: "25px",
+    backgroundColor: "#f3f5f7",
+    overflow: "hidden",
+    fontFamily: "Raleway",
+    fontSize: "large",
+    fontWeight: "600",
+    padding: "7px",
+    width: "max-content"
+};
+function CombainedButtons(arr, index, setIndex) {
+    function clicked(index) {
+        setIndex(index);
+    }
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        style: outerBoxStyle,
+        children: arr.map((val, i)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                style: {
+                    backgroundColor: index == i ? "white" : "#f3f5f7",
+                    ...buttonStyle
+                },
+                className: "combined-but",
+                index: i,
+                onClick: (e)=>{
+                    clicked(e.target.getAttribute("index"));
+                },
+                children: val
+            }, 234 * i, false, {
+                fileName: "src/Components/CombainedButtons.jsx",
+                lineNumber: 31,
+                columnNumber: 9
+            }, this))
+    }, void 0, false, {
+        fileName: "src/Components/CombainedButtons.jsx",
+        lineNumber: 27,
+        columnNumber: 6
+    }, this);
+}
+_c = CombainedButtons;
+exports.default = CombainedButtons;
+var _c;
+$RefreshReg$(_c, "CombainedButtons");
+
+  $parcel$ReactRefreshHelpers$4c08.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3K3vD":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$9169 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$9169.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+function Input({ value, setValue, placeHolder, svg }) {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        style: outerObj,
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: svg
+            }, void 0, false, {
+                fileName: "src/Components/Input.jsx",
+                lineNumber: 6,
+                columnNumber: 9
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                onChange: (e)=>{
+                    setValue(e.target.value);
+                },
+                value: value,
+                style: inputStyle,
+                placeholder: placeHolder
+            }, void 0, false, {
+                fileName: "src/Components/Input.jsx",
+                lineNumber: 7,
+                columnNumber: 9
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/Components/Input.jsx",
+        lineNumber: 3,
+        columnNumber: 9
+    }, this);
+}
+_c = Input;
+const inputStyle = {
+    height: "max-content",
+    padding: "15px 25px 15px 25px",
+    borderBottomRightRadius: "10px",
+    borderTopRightRadius: "10px",
+    paddingLeft: "20px",
+    backgroundColor: "#f3f5f7",
+    outline: "none"
+};
+const outerObj = {
+    paddingLeft: "15px",
+    fontSize: "large",
+    backgroundColor: "#f3f5f7",
+    borderRadius: "20px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "start",
+    width: "300px"
+};
+exports.default = Input;
+var _c;
+$RefreshReg$(_c, "Input");
+
+  $parcel$ReactRefreshHelpers$9169.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"irmnC":[function() {},{}]},["aQL8O","ju1lJ","adjPd"], "adjPd", "parcelRequire94c2")
 
 //# sourceMappingURL=index.63aff760.js.map
