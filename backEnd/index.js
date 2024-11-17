@@ -19,8 +19,8 @@ connect()
 app.use(express.json());
 
 ////
-
-
+const userRouter = require("./routs/user.js");
+let arr = [ userRouter ];
 ////
 
-app.use([]);
+app.use( arr );
