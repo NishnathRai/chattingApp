@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const PORT = 3000;
 const connect = require('./config/database.js');
+
 ////
 
 connect()
@@ -14,3 +15,12 @@ connect()
 .catch((err)=>console.log(err));
 
 /////
+
+app.use(express.json());
+
+////
+
+
+////
+
+app.use([]);

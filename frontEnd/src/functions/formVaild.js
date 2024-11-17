@@ -39,7 +39,7 @@ function isEmailValid(email,setMsg){
 
 function isUsernameValid(name,setMsg){
    if(!(name.length>5)){
-      setMsg("Please enter valid user name");
+      setMsg("Please enter valid user name (min 6 characters)");
       return false;
    }
    else {
