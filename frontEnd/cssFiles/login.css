@@ -6,3 +6,10 @@
     height: 100vh;
     width: 100vw;
 } */
+.opo{
+   font-family: 'Raleway';
+   font-size: small;
+   width: 300px;
+   padding-left: 10px;
+   color: red;
+}

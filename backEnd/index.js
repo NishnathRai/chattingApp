@@ -1,6 +1,16 @@
 const express = require("express");
 const app = express();
 const PORT = 3000;
-app.listen(PORT,(req,res)=>{
-    console.log(`server started at port ${PORT}`);
-});
+const connect = require('./config/database.js');
+////
+
+connect()
+.then(()=>{
+    console.log("db connected")
+    app.listen(PORT,()=>{
+        console.log(`server started at port ${PORT}`);
+    });
+})
+.catch((err)=>console.log(err));
+
+/////
