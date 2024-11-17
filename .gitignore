@@ -1,2 +1,8 @@
-node_modules
-.parcel_cache
+# Ignore node_modules
+node_modules/
+
+# Ignore Parcel cache
+frontEnd/.parcel-cache/
+
+# Ignore build output
+frontEnd/dist/
