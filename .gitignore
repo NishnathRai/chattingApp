@@ -6,3 +6,5 @@ node_modules/
 
 # Ignoring dist
 dist
+
+.env

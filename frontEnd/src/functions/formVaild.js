@@ -1,14 +1,14 @@
 import postCall from "./postCall";
-let URL = "http://localhost:3000";
+require('dotenv').config();
 
 async function formVaild(index,email,password,userName,remember,setMsg){
     try{
         if(index==0 && signin(index,email,password,userName,remember,setMsg) ) {
-            let result = await postCall(URL+"/signin",{ email , password , remember });
+            let result = await postCall(process.env.URL+"/signin",{ email , password , remember });
             setMsg(result.message);
         }
         else if( signup(index,email,password,userName,remember,setMsg)){
-            let result = await postCall(URL+"/signup",{ email , password , remember , userName });
+            let result = await postCall(process.env.URL+"/signup",{ email , password , remember , userName });
             setMsg(result.message);
         }
     }
