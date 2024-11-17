@@ -22,13 +22,7 @@ const userSchema = new mongoose.Schema({
           unique:true
       },
       password : {
-          type : String ,
-          validate : {
-              validator : function(val){
-                 return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/.test(val);
-              },
-              message : `a minimum length of 6 characters and a mix of lowercase letters, uppercase letters digits, and special characters`,
-          }
+          type : String 
       },
       bio :{
           type : String ,
@@ -44,11 +38,11 @@ const userSchema = new mongoose.Schema({
           type : String ,
           validate : {
               validator : function(val){
-                return val.index>=5 && val.length<=20;
+                return val.length>=5 && val.length<=20;
               },
               message : ` At least 5 characters and max 20 characters`
           },
-          default : `Together 🫶`
+          default : `Together 🫶`,
       },
       profilePicture : {
           type : String,
