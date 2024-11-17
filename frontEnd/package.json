@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "The end is the Begining",
   "scripts": {
-    "dev": "parcel index.html"
+    "dev": "parcel index.html",
+    "build":"parcel build index.html"
   },
   "author": "Nishnath",
   "license": "ISC",
