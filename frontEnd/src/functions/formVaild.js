@@ -1,10 +1,20 @@
-function formVaild(index,email,password,userName,remember,setMsg){
-    console.log(index,email,password,userName,remember);
-    if(index==0) {
-        signin(index,email,password,userName,remember,setMsg);
+import postCall from "./postCall";
+let URL = "http://localhost:3000";
+
+async function formVaild(index,email,password,userName,remember,setMsg){
+    try{
+        if(index==0 && signin(index,email,password,userName,remember,setMsg) ) {
+            let result = await postCall(URL+"/signin",{ email , password , remember });
+            setMsg(result.message);
+        }
+        else if( signup(index,email,password,userName,remember,setMsg)){
+            let result = await postCall(URL+"/signup",{ email , password , remember , userName });
+            setMsg(result.message);
+        }
     }
-    else{
-        signup(index,email,password,userName,remember,setMsg);
+    catch(err){
+        console.log(err);
+        setMsg("some thing went wrong while tring to connnect with back-end (see console for more info)");
     }
 };
 
@@ -14,18 +24,20 @@ export default formVaild;
 function signup(index,email,password,userName,remember,setMsg){
     if( isEmailValid(email,setMsg) && isPasswordValid(password,setMsg) && isUsernameValid(userName,setMsg) ) {
         setMsg("");
+        return true;
     }
     else {
-        console.log("Not vaild");
+        return false;
     }
 }
 
 function signin(index,email,password,userName,remember,setMsg){
     if( isEmailValid(email,setMsg) && isPasswordValid(password,setMsg) ) {
         setMsg("");
+        return true;
     }
     else {
-        console.log("Not vaild");
+        return false;
     }
 };
 
@@ -49,7 +61,7 @@ function isUsernameValid(name,setMsg){
 
 function isPasswordValid(password,setMsg){
     if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/.test(password)) {
-        setMsg("a minimum length of 6 characters and a mix of lowercase letters, uppercase letters digits, and special characters");
+        setMsg("a minimum length of 6 characters and a mix of lowercase letters, uppercase letters , digits, and special characters");
         return false;
     }
     else return true;

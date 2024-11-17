@@ -2,7 +2,8 @@ const express = require("express");
 const app = express();
 const PORT = 3000;
 const connect = require('./config/database.js');
-var cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser')
+const cors = require("cors");
 ////
 
 connect()
@@ -15,6 +16,10 @@ connect()
 .catch((err)=>console.log(err));
 
 /////
+app.use(cors({
+    origin: 'http://localhost:1234',
+    credentials: true, 
+}));
 app.use(express.json());
 app.use(cookieParser());
 ////

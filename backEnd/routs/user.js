@@ -19,9 +19,10 @@ userRouter.post("/signin",async (req,res,next)=>{
        next();
     }
     catch(err){
-        res.status(400).send(err.message );
+        res.status(400).send( {message:err.message} );
     }
-} , plantJWT ,(req,res) => { res.send("sign In Successfully") } );
+} , plantJWT ,(req,res) => { res.send({ message:"sign In Successfully"}) } );
+
 
 userRouter.post("/signup",async (req,res,next)=>{
     try{
@@ -40,10 +41,10 @@ userRouter.post("/signup",async (req,res,next)=>{
        next();
     }
     catch(err){
-        if(err.code==11000) res.status(400).send( req.body?.email + " Already exists");
-        else res.status(400).send(err.message);
+        if(err.code==11000) res.status(400).send({ message:req.body?.email + " Already exists"});
+        else res.status(400).send({message:err.message});
     }
-} , plantJWT , (req,res)=>{ res.send("Account created Successfully") } )
+} , plantJWT , (req,res)=>{ res.send({message:"Account created Successfully"}) } )
 
 
 module.exports = userRouter;
