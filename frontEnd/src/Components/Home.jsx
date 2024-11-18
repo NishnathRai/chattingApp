@@ -3,23 +3,11 @@ import '../../cssFiles/home.css';
 import BottomBox from './BottomBox';
 import LeftBar from './LeftBar';
 import Main from './Main';
-import { useNavigate } from 'react-router-dom';
+import useproctedRout from '../myHooks/useprotectedRout';
 
 function Home(){
     
-    const navigate = useNavigate();
-    useEffect(async ()=>{
-        try{
-            let value = await fetch(process.env.URL+"/isValid",{credentials:"include"});
-            if(value.status!=200){
-                 navigate('login');
-             }
-        }
-        catch(err){
-            console.log("error from protected route",err);
-            navigate('login');
-        }
-    },[]);
+    useproctedRout();
 
     return (<>
        <Main  />
