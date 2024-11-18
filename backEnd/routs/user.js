@@ -8,6 +8,7 @@ const userModel = require("../schemas/userSchema.js");
 const bcrypt = require("bcrypt");
 const plantJWT = require('../functions/plantJWT.js');
 const isPsswordCorrect = require('../functions/isPasswordCorrect.js');
+const verifyAndAddUser =require("../functions/verifyAndAddUser.js");
 ////
 userRouter.post("/signin",async (req,res,next)=>{
     try{
@@ -50,19 +51,16 @@ userRouter.post("/signup",async (req,res,next)=>{
 
 
 
-userRouter.get("/isValid",async (req,res)=>{
-    const token = req.cookies?.token;
-    if( token==null || token==undefined ){
-         res.status(401).send();
-         return;
-    }
-    let decoded =  jwt.verify( token , process.env.jwtSecreat );
-    decoded = await userModel.findById(decoded._id);
-    if(decoded==null) {
-        res.status(401).send();
-        return;
-    }
+userRouter.get("/isValid",verifyAndAddUser,(req,res)=>{
     res.send({});
+});
+
+
+userRouter.get("/userData",verifyAndAddUser ,(req,res)=>{
+    delete req.body.user.password ;
+    delete req.body.user.__v ;
+    delete req.body.user._id ;
+    res.send(req.body.user);
 });
 
 module.exports = userRouter;

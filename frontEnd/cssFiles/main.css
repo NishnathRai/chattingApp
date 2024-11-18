@@ -4,12 +4,44 @@
   top: 0;
   width: 100vw;
   height: 90vh;
-  border: solid green 5px;
-  background-color: aqua;
+  /* border: solid green 5px;
+  background-color: aqua; */
 }
 
 @media (min-width:700px){
     .main-box{
      height: 100vh;
     }
+}
+
+.ap{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.profil-picture{
+    height: 20vh;
+    aspect-ratio: 1;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.parent{
+  position: relative;
+  width: max-content;
+  margin-bottom: 30px;
+}
+
+.edit-but{
+  height: 22%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color:black;
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
 }

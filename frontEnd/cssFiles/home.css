@@ -51,6 +51,7 @@
     color: white;
     gap: 13px;
     border-radius: 20px;
+    cursor: pointer;
 }
 .lkl:hover{
     background-color: black;
