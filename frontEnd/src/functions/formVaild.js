@@ -2,6 +2,7 @@ import postCall from "./postCall";
 require('dotenv').config();
 
 async function formVaild(index,email,password,userName,remember,setMsg){
+    console.log(index,email,password,userName,remember,setMsg);
     try{
         if(index==0 && signin(index,email,password,userName,remember,setMsg) ) {
             let result = await postCall(process.env.URL+"/signin",{ email , password , remember });
