@@ -1,5 +1,7 @@
 const express = require('express');
 const userRouter = express.Router();
+require("dotenv").config();
+const jwt = require('jsonwebtoken');
 ////
 const Vaild = require("../functions/validate.js");
 const userModel = require("../schemas/userSchema.js");
@@ -15,7 +17,7 @@ userRouter.post("/signin",async (req,res,next)=>{
        let user = await userModel.findOne({email}).exec();;
        if(!user) throw Error("Please enter Vaild info");
        await isPsswordCorrect(user,password);
-       req._id = user._id;
+       req.body._id = user._id;
        next();
     }
     catch(err){
@@ -46,5 +48,21 @@ userRouter.post("/signup",async (req,res,next)=>{
     }
 } , plantJWT , (req,res)=>{ res.send({message:"Account created Successfully"}) } )
 
+
+
+userRouter.get("/isValid",async (req,res)=>{
+    const token = req.cookies?.token;
+    if( token==null || token==undefined ){
+         res.status(401).send();
+         return;
+    }
+    let decoded =  jwt.verify( token , process.env.jwtSecreat );
+    decoded = await userModel.findById(decoded._id);
+    if(decoded==null) {
+        res.status(401).send();
+        return;
+    }
+    res.send({});
+});
 
 module.exports = userRouter;

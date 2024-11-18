@@ -17,7 +17,7 @@ connect()
 
 /////
 app.use(cors({
-    origin: 'http://localhost:1234',
+    origin: 'http://localhost:1234/',
     credentials: true, 
 }));
 app.use(express.json());

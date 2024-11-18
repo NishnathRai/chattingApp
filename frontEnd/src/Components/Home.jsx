@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../cssFiles/home.css';
 import BottomBox from './BottomBox';
 import LeftBar from './LeftBar';
 import Main from './Main';
+import { useNavigate } from 'react-router-dom';
 
 function Home(){
     
+    const navigate = useNavigate();
+    useEffect(async ()=>{
+        let value = await fetch(process.env.URL+"/isValid",{credentials:"include"});
+        if(value.status!=200){
+             navigate('login');
+         }
+         return;
+    },[]);
 
     return (<>
        <Main  />
