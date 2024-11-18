@@ -1,0 +1,15 @@
+.main-box{
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100vw;
+  height: 90vh;
+  border: solid green 5px;
+  background-color: aqua;
+}
+
+@media (min-width:700px){
+    .main-box{
+     height: 100vh;
+    }
+}

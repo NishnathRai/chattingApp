@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import '../../cssFiles/home.css';
 import BottomBox from './BottomBox';
 import LeftBar from './LeftBar';
+import Main from './Main';
 
 function Home(){
     
 
     return (<>
+       <Main  />
        <div className='mobile-view' ><BottomBox arr={arr} /></div>
        <div className='desktop-view' ><LeftBar arr={arr} /></div>
     </>);
