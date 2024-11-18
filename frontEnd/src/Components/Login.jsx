@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import '../../cssFiles/login.css';
 import CombainedButtons from './CombainedButtons';
 import Input from './Input';
 import formVaild from '../functions/formVaild';
@@ -20,7 +19,7 @@ function Login(){
 
     return (
     <>
-    <div style={centerBoxStyle} className='centerBox' >
+    <div style={centerBoxStyle}  >
         <h1 style={heading} >Together.in</h1>
         {CombainedButtons(["Sign in","Sign up"],index,setIndex)}
         { iteams.map( (val,index)=> <Input key={12+index} value={val.v} setValue={val.s}  placeHolder={val.placeHolder} svg={val.svg} /> ) }
@@ -59,7 +58,7 @@ const centerBoxStyle =
     backgroundColor: "white",
     height: "max-content",
     padding:" 50px 50px 70px 50px",
-    borderRadius: "30px"
+    borderRadius: "30px",
 }
 
 const heading = 
