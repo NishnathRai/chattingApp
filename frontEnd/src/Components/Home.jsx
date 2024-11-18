@@ -9,11 +9,16 @@ function Home(){
     
     const navigate = useNavigate();
     useEffect(async ()=>{
-        let value = await fetch(process.env.URL+"/isValid",{credentials:"include"});
-        if(value.status!=200){
-             navigate('login');
-         }
-         return;
+        try{
+            let value = await fetch(process.env.URL+"/isValid",{credentials:"include"});
+            if(value.status!=200){
+                 navigate('login');
+             }
+        }
+        catch(err){
+            console.log("error from protected route",err);
+            navigate('login');
+        }
     },[]);
 
     return (<>
