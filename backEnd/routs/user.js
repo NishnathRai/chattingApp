@@ -63,4 +63,29 @@ userRouter.get("/userData",verifyAndAddUser ,(req,res)=>{
     res.send(req.body.user);
 });
 
+userRouter.put("/userUpdate",verifyAndAddUser,async (req,res)=>{
+    const id = req.body.user._id;
+    let newObj = {  } ;
+    if(req.body?.userName!=undefined) newObj.userName = req.body.userName;
+    if(req.body?.email!=undefined) newObj.email = req.body.email;
+    if(req.body?.bio!=undefined) newObj.bio= req.body.bio;
+    if(req.body?.status!=undefined) newObj.status= req.body.status;
+    if(req.body?.profilePicture!=undefined) newObj.profilePicture= req.body.profilePicture;
+    try{
+        const modifiedObj =await userModel.findByIdAndUpdate(
+            id ,
+             newObj ,
+            { new : true , runValidators: true }
+        );
+        res.send({message:"Modified sucess fully"});
+    }
+    catch(err){
+       if(err.code==11000) {
+        res.send({message:"email id alreay taken"});
+        return;
+       }
+        res.send({message:err.message});
+    }
+});
+
 module.exports = userRouter;

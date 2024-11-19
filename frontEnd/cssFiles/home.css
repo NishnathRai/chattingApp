@@ -71,6 +71,11 @@
 .desktop-view{
     display: none;
 }
+.msg-error{
+    color: red;
+    font-family: "Raleway";
+    width: 280px;
+}
 @media (min-width :700px){
     .desktop-view {
         display: block;
