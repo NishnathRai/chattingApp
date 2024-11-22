@@ -81,7 +81,7 @@ userRouter.put("/userUpdate",verifyAndAddUser,async (req,res)=>{
     }
     catch(err){
        if(err.code==11000) {
-        res.send({message:"email id alreay taken"});
+        res.send({message:"email id taken before"});
         return;
        }
         res.send({message:err.message});

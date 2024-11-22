@@ -11,6 +11,7 @@ let options =
 
 async function updateFromApi(email,userName,bio,status,profilePicture,setMessage){
     let obj = {
+      profilePicture,
       userName,
       email,
       bio,
@@ -25,7 +26,7 @@ async function updateFromApi(email,userName,bio,status,profilePicture,setMessage
     }
     catch(err){
         setMessage("Some thing went wrong see console for more info");
-        console.log( "error in updating user data" , err.message)
+        console.log( "error in updating user data" , err.message);
     }
 }
 
