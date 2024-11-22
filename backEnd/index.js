@@ -20,11 +20,13 @@ app.use(cors({
     origin: 'http://localhost:1234/',
     credentials: true, 
 }));
-app.use(express.json());
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ limit: '10mb', extended: true }));
 app.use(cookieParser());
 ////
 const userRouter = require("./routs/user.js");
-let arr = [ userRouter ];
+const feedRouter = require("./routs/feed.js");
+let arr = [ userRouter , feedRouter ];
 ////
 
 app.use( arr );

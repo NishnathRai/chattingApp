@@ -41,11 +41,17 @@ function SettingsPage(){
     } ,[]);
 
     async function fileAddedToInput(image) {
-        let file = new FileReader();
-        file.readAsDataURL(image);
-        file.onload=()=>{
-            setImage(file.result);
-        };
+        try{
+            let file = new FileReader();
+            file.readAsDataURL(image);
+            file.onload=()=>{
+                setImage(file.result);
+            };
+        }
+        catch(err){
+            setMessage("error while loading image see console for more details");
+            console.log("err in loading image",err.message);
+        }
     }
 
     async function clickedUpdate(){
