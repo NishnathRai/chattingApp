@@ -58,13 +58,15 @@ function SearchPage(){
     return (<>
     <div style={{backgroundColor: mode ? "white" : "rgb(45, 45, 45)"}} className="search-page-box" >
         <div className="search-bar" >
-          <Input  setValue={setsearchValue} svg={SearchIcon} placeHolder={"Search with User Name"} />
+          <Input  setValue={setsearchValue} svg={SearchIcon} placeHolder={"User Name"} />
         </div>
+        <div className="bottom-box" >
         { feed.map( (val,i)=>{
             return  <UserCard key={i+216} _id={val?._id} /> ;
         } ) }
         <div ref={infiniteLoder} className="infilite-scrole" >
             <Loder/>
+        </div>
         </div>
     </div>
     </>)

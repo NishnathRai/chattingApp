@@ -1,16 +1,22 @@
 import postCall from "./postCall";
 require('dotenv').config();
 
-async function formVaild(index,email,password,userName,remember,setMsg){
+async function formVaild(index,email,password,userName,remember,setMsg,navigate){
     console.log(index,email,password,userName,remember,setMsg);
     try{
+        let r ="";
         if(index==0 && signin(index,email,password,userName,remember,setMsg) ) {
             let result = await postCall(process.env.URL+"/signin",{ email , password , remember });
             setMsg(result.message);
+            r=result.message;
         }
         else if( signup(index,email,password,userName,remember,setMsg)){
             let result = await postCall(process.env.URL+"/signup",{ email , password , remember , userName });
             setMsg(result.message);
+            r=result.message;
+        }
+        if(r=="sign In Successfully"){
+            navigate('/');
         }
     }
     catch(err){

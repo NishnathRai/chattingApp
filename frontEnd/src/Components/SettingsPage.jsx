@@ -64,12 +64,12 @@ function SettingsPage(){
     return (<>
         <div style={{backgroundColor: mode ? "white" : "rgb(45, 45, 45)"}} className="ap" >
             <div className="parent" >
-            <input onChange={(e)=>{fileAddedToInput(e.target.files[0])}}  type="file" accept=".png" className="edit-but" />
+            <input onChange={(e)=>{fileAddedToInput(e.target.files[0])}}  type="file" accept=".png, .jpg, .jpeg, .gif, .bmp, .webp" className="edit-but" />
             <img src={image} className="profil-picture" />
             </div>
             { iteams.map( (val)=><Input value={val.v} setValue={val.s} placeHolder={val.placeHolder} svg={val.svg} /> ) }
             <h1 className="msg-error" >{message}</h1>
-            <button onClick={()=>{clickedUpdate()}} style={butStyle} >{ loder ? <Loder/> : "Updata"}</button>
+            <button onClick={()=>{clickedUpdate()}} style={butStyle} >{ loder ? <Loder/> : "Update"}</button>
         </div> 
     </>);
 }

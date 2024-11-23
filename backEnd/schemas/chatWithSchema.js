@@ -3,7 +3,7 @@ const { validate } = require("./userSchema");
 const userModel = require("./userSchema");
 const {chatWithObjectSchema} = require("./chatWithObjectSchema");
 
-const charWithSchema = new mongose.Schema({
+const chatWithSchema = new mongose.Schema({
     userId : {
         type : mongose.Types.ObjectId,
         require : true,
@@ -26,7 +26,7 @@ const charWithSchema = new mongose.Schema({
     }
 });
 
-const charWithModel = mongose.model('charWith',charWithSchema);
+const chatWithModel = mongose.model('charWith',chatWithSchema);
 
-module.exports = charWithModel ; 
+module.exports = chatWithModel ; 
 
