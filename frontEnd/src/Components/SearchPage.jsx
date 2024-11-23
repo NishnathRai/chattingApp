@@ -26,7 +26,17 @@ function SearchPage(){
         }
         catch(err){console.log( err.message , " err at feed fetching " )} ;
     };
-    useEffect(()=>{getFeed(0,searchValue,1)},[searchValue]);
+    useEffect(()=>{
+        let a = setTimeout(()=>{
+            getFeed(0,searchValue,1);
+        },300);
+        return ()=>{
+            clearTimeout(a);
+        }
+    },[searchValue]);
+    useEffect(()=>{
+        getFeed(0,searchValue,1)
+    },[]);
     useEffect(()=>{
         function callback(entries){
            entries.forEach((entry)=>{
