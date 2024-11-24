@@ -1,9 +1,8 @@
-import { useNavigate } from "react-router-dom";
 
-async function useLogout(){
+
+async function useLogout(navigate){
     let a = await fetch(process.env.URL+"/logout",{credentials:"include"});
-    const navigate = useNavigate();
-    navigate("/");
+    navigate("/Login"); 
 };
 
 export default useLogout;

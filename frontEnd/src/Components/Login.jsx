@@ -33,7 +33,7 @@ function Login(){
     <div style={centerBoxStyle}  >
         <h1 style={heading} >Together.in</h1>
         {CombainedButtons(["Sign in","Sign up"],index,setIndex)}
-        { iteams.map( (val,index)=> <Input key={12+index} value={val.v} setValue={val.s}  placeHolder={val.placeHolder} svg={val.svg} /> ) }
+                { iteams.map( (val,index)=> <Input key={12+index} value={val.v} setValue={val.s}  placeHolder={val.placeHolder} svg={val.svg} /> ) }
         {index!=0 && <Input value={userName} setValue={setUserName} placeHolder="User Name" svg={<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 448 512"><path fill="#000000" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/></svg>} />}
         <span checked={remember} onChange={(e)=>{ setRemember(e.target.checked) }} style={spanStyle} ><input type='checkbox' />Remember Me</span>
         <h3 style={msgStye} >{msg}</h3>

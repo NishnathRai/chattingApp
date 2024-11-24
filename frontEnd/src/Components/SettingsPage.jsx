@@ -4,6 +4,7 @@ import Loder from "./Loder";
 import { useSelector } from "react-redux";
 import updateFromApi from "../functions/updateFromApi";
 import useLogout from "../myHooks/useLogout";
+import { useNavigate } from "react-router-dom";
 
 
 async function lodeDataInUpdatePage(setEmail,setBio,setStatus,setUser,setImage) {
@@ -30,6 +31,7 @@ function SettingsPage(){
     let [user,setUser] = useState("");
     let [loder,setLoder] = useState(false);
     let [ message , setMessage ] = useState("");
+    let navigate= useNavigate();
     let iteams = [
         {placeHolder:"User name",svg:<svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><path fill="#000000" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/></svg>,s:setUser,v:user},
         {placeHolder:"Email",svg:<svg  xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512"><path fill="#000000" d="M64 208.1L256 65.9 448 208.1l0 47.4L289.5 373c-9.7 7.2-21.4 11-33.5 11s-23.8-3.9-33.5-11L64 255.5l0-47.4zM256 0c-12.1 0-23.8 3.9-33.5 11L25.9 156.7C9.6 168.8 0 187.8 0 208.1L0 448c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-239.9c0-20.3-9.6-39.4-25.9-51.4L289.5 11C279.8 3.9 268.1 0 256 0z"/></svg>,v:email,s:setEmail},
@@ -68,10 +70,10 @@ function SettingsPage(){
             <input onChange={(e)=>{fileAddedToInput(e.target.files[0])}}  type="file" accept=".png, .jpg, .jpeg, .gif, .bmp, .webp" className="edit-but" />
             <img src={image} className="profil-picture" />
             </div>
-            { iteams.map( (val)=><Input value={val.v} setValue={val.s} placeHolder={val.placeHolder} svg={val.svg} /> ) }
+            { iteams.map( (val,i)=><Input value={val.v} setValue={val.s} placeHolder={val.placeHolder} svg={val.svg} /> ) }
             <h1 className="msg-error" >{message}</h1>
             <button onClick={()=>{clickedUpdate()}} style={butStyle} >{ loder ? <Loder/> : "Update"}</button>
-            <button onClick={useLogout} style={butStyle} >{ "Logout" }</button>
+            <button onClick={()=>{useLogout(navigate)}} style={butStyle} >{ "Logout" }</button>
         </div> 
     </>);
 }
