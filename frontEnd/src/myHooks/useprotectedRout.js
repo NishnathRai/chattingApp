@@ -5,7 +5,6 @@ function useproctedRout(){
     const location = useLocation();
     useEffect(()=>{
         async function a(){
-            console.log(location.pathname=='/Login',location.pathname);
             try{
                 let value = await fetch(process.env.URL+"/isValid",{credentials:"include"});
                 if(value.status!=200){
@@ -16,7 +15,6 @@ function useproctedRout(){
                 }
             }
             catch(err){
-                console.log("error from protected route",err);
                 if(location.pathname!="/Login") navigate('Login');
             }
         }

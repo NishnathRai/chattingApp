@@ -9,17 +9,6 @@ const chatWithSchema = new mongose.Schema({
         require : true,
         unique : true,
         index : true,
-        validate :{
-            validator :async (val)=>{
-                try{
-                    let result = await userModel.findById(val);
-                    if( result==null ) return false;
-                    else true;
-                }
-                catch(err) {return false;}
-            },
-            message : `user not found`
-        }
     },
     chatWith : {
         type : [ mongose.Types.ObjectId ],

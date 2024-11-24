@@ -24,7 +24,7 @@ function LeftBar({arr}){
     <div style={{width:open ? "23vw" : "7vw" }} className='pola' >
         <div onClick={()=>{ dispatch(toggleOpen()) }} className='lkl' ><svg xmlns="http://www.w3.org/2000/svg" height="25" width="25" viewBox="0 0 448 512"><path fill="#ffffff" d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/></svg>{ open && "Side Bar"}</div>
         <div className='koka' >
-            { arr.map( (val,i)=><span style={ (i==index) ? { backgroundColor:"black"} : {} } onClick={()=>{dispatch(changePage(i))}} className='lkl' >{val.svg}{ open && <span>{val.name}</span>}</span>) }
+            { arr.map( (val,i)=><span key={i} style={ (i==index) ? { backgroundColor:"black"} : {} } onClick={()=>{dispatch(changePage(i))}} className='lkl' >{val.svg}{ open && <span>{val.name}</span>}</span>) }
         </div>
         {<div onClick={()=>{changeMode()}} className='lkl' >{ mode ? lightSvd : darkSvg }{ open && <span>{ mode ? "Dark Mode" : "Light Mode" }</span>}</div>}
     </div>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function UserCard({_id}){
    
@@ -29,7 +30,7 @@ function UserCard({_id}){
     let [ status ,setStatus ] = useState("");
 
     return (<>
-
+     <Link to={"/chatWith/"+_id}  >
      <div className="user-card-box" >
         <img src={ profilImg } className="user-card-profilpicture"  />
          <div className="user-card-info" >
@@ -39,7 +40,7 @@ function UserCard({_id}){
              <h1>Status : <span className="dark" >{status}</span></h1>
         </div>
      </div>
-
+     </Link>
     </>)
 };
 

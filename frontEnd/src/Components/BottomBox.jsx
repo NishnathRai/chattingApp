@@ -9,7 +9,7 @@ function BottomBox({arr}){
     return (<>
     <div className='puka' >
      { arr.map( (val,i)=>{
-     return <div style={ {backgroundColor:(i==index) && "black" } }  className="but-ico" onClick={()=> dispatch(changePage(i)) } >{(i!=index) ? val.svgb : val.svg}</div>;
+     return <div key={i} style={ {backgroundColor:(i==index) && "black" } }  className="but-ico" onClick={()=> dispatch(changePage(i)) } >{(i!=index) ? val.svgb : val.svg}</div>;
      })}
     </div>
     </>);

@@ -3,6 +3,7 @@ import Input from "./Input";
 import Loder from "./Loder";
 import { useSelector } from "react-redux";
 import updateFromApi from "../functions/updateFromApi";
+import useLogout from "../myHooks/useLogout";
 
 
 async function lodeDataInUpdatePage(setEmail,setBio,setStatus,setUser,setImage) {
@@ -70,6 +71,7 @@ function SettingsPage(){
             { iteams.map( (val)=><Input value={val.v} setValue={val.s} placeHolder={val.placeHolder} svg={val.svg} /> ) }
             <h1 className="msg-error" >{message}</h1>
             <button onClick={()=>{clickedUpdate()}} style={butStyle} >{ loder ? <Loder/> : "Update"}</button>
+            <button onClick={useLogout} style={butStyle} >{ "Logout" }</button>
         </div> 
     </>);
 }

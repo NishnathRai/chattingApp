@@ -10,7 +10,6 @@ feedRouter.get("/feed/:skip/:search", verifyAndAddUser ,async (req,res)=>{
         if(req.params?.search.slice(1).length!=0) {
             searchQ = { userName: { $regex: req.params?.search.slice(1), $options: 'i' } };
         }
-        console.log(searchQ);
         let a =await userModel
         .find(searchQ)
         .sort({_id:1})

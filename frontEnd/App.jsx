@@ -5,6 +5,7 @@ import './src/index.css';
 import store from "./src/store/store";
 import { Provider } from "react-redux";
 import ErrorPage from "./src/Components/ErrorPage";
+import ChattingPage from "./src/Components/ChattingPage";
 
 const router = createBrowserRouter([
     {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
     },
     {
       path:"/chatWith/:UserId",
-      element : <></>
+      element : <ChattingPage/>
     }
 ])
 

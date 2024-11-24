@@ -6,17 +6,6 @@ const chatWithObjectSchema = new mongoose.Schema({
      userId : {
         type : mongoose.Types.ObjectId,
         require : true ,
-        validate :{
-            validator :async (val)=>{
-                try{
-                    let result = await userModel.findById(val);
-                    if( result==null ) return false;
-                    else true;
-                }
-                catch(err) {return false;}
-            },
-            message : `user not found`
-        }
      },
      unReadMessagesCount : {
         type : Number ,
