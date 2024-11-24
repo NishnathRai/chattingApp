@@ -1,4 +1,5 @@
-const db_URL = "mongodb://localhost:27017/Together";
+require("dotenv").config();
+const db_URL = process.env.db_URL;
 const mongoose = require("mongoose");
 
 async function connect(){
