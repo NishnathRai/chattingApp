@@ -3,10 +3,19 @@ const verifyAndAddUser = require("../functions/verifyAndAddUser");
 const chatRouter = express.Router();
 const chatWithModel = require("../schemas/chatWithSchema");
 const chatMessageModel = require("../schemas/chatMessageSchema");
+const addMessageToChatWith = require("../functions/addMessageTochatWith");
+const { chatWithObjectModel } = require("../schemas/chatWithObjectSchema");
 
 chatRouter.get("/chat", verifyAndAddUser ,async (req,res)=>{
     try{
-        let data = await chatWithModel.find({userId:req?.body?.user?._id});
+        let data = await chatWithModel.findOne({userId:req?.body?.user?._id});
+        if(data==null){
+            res.send([]);
+            return;
+        }
+        data = await chatWithObjectModel.find({
+            _id : { $in : data?.chatWith }
+        });
         res.send(data);
     }
     catch(err){
@@ -39,20 +48,19 @@ chatRouter.get("/messageWithId/:id/:skip", verifyAndAddUser , async (req,res)=>{
 });
 
 
-chatRouter.post("/sentMessage",verifyAndAddUser,async (req,res)=>{
+chatRouter.post("/sentMessage",verifyAndAddUser,async (req,res,next)=>{
     try{
         let s = chatMessageModel({
             FromUserId : req.body.user._id,
             ToUserId : req.body.ToUserId,
             message : req.body.message 
-        })
+        });
         await s.save();
-        res.send("Done");
+        next();
     }
     catch(err){
         res.status(500).send({message:err.message});
     }
-});
-
+} , addMessageToChatWith );
 
 module.exports = chatRouter ; 

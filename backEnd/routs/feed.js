@@ -22,7 +22,7 @@ feedRouter.get("/feed/:skip/:search", verifyAndAddUser ,async (req,res)=>{
     catch(err) {res.send([])}
 });
 
-feedRouter.get("/getFeedUserData/:_id/", verifyAndAddUser ,async (req,res)=>{
+feedRouter.get("/getFeedUserData/:_id", verifyAndAddUser ,async (req,res)=>{
     try{
         let userData = await userModel
         .findById(req.params?._id)
