@@ -5,6 +5,7 @@ const chatWithModel = require("../schemas/chatWithSchema");
 const chatMessageModel = require("../schemas/chatMessageSchema");
 const addMessageToChatWith = require("../functions/addMessageTochatWith");
 const { chatWithObjectModel } = require("../schemas/chatWithObjectSchema");
+const addMessageToDB = require("../functions/addMessageToDB");
 
 chatRouter.get("/chat", verifyAndAddUser ,async (req,res)=>{
     try{
@@ -48,19 +49,6 @@ chatRouter.get("/messageWithId/:id/:skip", verifyAndAddUser , async (req,res)=>{
 });
 
 
-chatRouter.post("/sentMessage",verifyAndAddUser,async (req,res,next)=>{
-    try{
-        let s = chatMessageModel({
-            FromUserId : req.body.user._id,
-            ToUserId : req.body.ToUserId,
-            message : req.body.message 
-        });
-        await s.save();
-        next();
-    }
-    catch(err){
-        res.status(500).send({message:err.message});
-    }
-} , addMessageToChatWith );
+chatRouter.post("/sentMessage",verifyAndAddUser, addMessageToDB , addMessageToChatWith );
 
 module.exports = chatRouter ; 

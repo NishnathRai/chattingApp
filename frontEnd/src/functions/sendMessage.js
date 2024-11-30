@@ -1,5 +1,6 @@
 async function sendMessage(message ,setMessage,ToUserId,getMessages){
-    let a  = await fetch ( process.env.URL+"/sentMessage" , {
+   try{
+      let a  = await fetch ( process.env.URL+"/sentMessage" , {
          method: 'POST',
          headers:{
             'Content-Type':'application/json'
@@ -9,9 +10,13 @@ async function sendMessage(message ,setMessage,ToUserId,getMessages){
             ToUserId
          }), 
          credentials:"include"
-    });
-    setMessage("");
-    getMessages();
+      });
+      setMessage("");
+      getMessages();
+   }
+   catch(err) {
+      console.log("error at sending message",err)
+   }
 }
 
 
