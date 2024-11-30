@@ -5,7 +5,7 @@ function Message({message,time,seen,from,_id}){
         <div style={messageInnerBoxStyle} >
                <>{message}</>
                <br/>
-               <div style={bottomTime} > { time } { seen ?  "seen" : "sent" } </div>
+               <div style={bottomTime} > { from ? <> { time } { seen ?  "seen" : "sent" }</> : <>{"...."}</> }  </div>
         </div>
     </div>
     </>);

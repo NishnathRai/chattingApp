@@ -1,16 +1,21 @@
 
-/// A = from user 
+/// A  = from user 
 /// B  = to user
 
 const { chatWithObjectModel } = require("../schemas/chatWithObjectSchema");
 const chatWithModel = require("../schemas/chatWithSchema");
 
 async function addMessageToChatWith(req,res) {
-   let modificationObjA = await giveChatWithObject( req.body?.user?._id , req.body?.ToUserId );
-   await addChatWithForA(modificationObjA,req.body?.message);
-   let modificationObjB = await giveChatWithObject(  req.body?.ToUserId , req.body?.user?._id );
-   await addChatWithForB(modificationObjB,req.body?.message);
-   res.send({message:"Done"});
+   try{
+       let modificationObjA = await giveChatWithObject( req.body?.user?._id , req.body?.ToUserId );
+       await addChatWithForA(modificationObjA,req.body?.message);
+       let modificationObjB = await giveChatWithObject(  req.body?.ToUserId , req.body?.user?._id );
+       await addChatWithForB(modificationObjB,req.body?.message);
+       res.send({message:"Done"});
+   }
+   catch(err){
+       res.status(500).send({"error":"500"})
+   }
 }
 
 
@@ -82,4 +87,7 @@ async function creteChatWithObj(from){
     return obj;
 }
 
-module.exports = addMessageToChatWith ;
+module.exports ={
+     addMessageToChatWith ,
+     giveChatWithObject
+};
