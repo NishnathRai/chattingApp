@@ -23,7 +23,6 @@ function ChattingPage(){
         }
         getOppositeUserData();
         /////
-        
         getMessages();
     },[]);
     async function getMessages() {

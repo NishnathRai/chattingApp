@@ -28,8 +28,13 @@ function ChatPage(){
 }
 
 async function getChatWithPages(setData){
-    let data = await fetch( process.env.URL+"/chat" , { credentials : "include" } );
-    data = await data.json();
-    setData(data);
+    try{
+        let data = await fetch( process.env.URL+"/chat" , { credentials : "include" } );
+        data = await data.json();
+        setData(data);
+    }
+    catch(err) {
+        console.log(err+"error at chat page");
+    }
 }
 export default ChatPage;
