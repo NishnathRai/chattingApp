@@ -4,6 +4,7 @@ const PORT = 3000;
 const connect = require('./config/database.js');
 const cookieParser = require('cookie-parser')
 const cors = require("cors");
+require("dotenv").config();
 ////
 
 connect()
@@ -17,7 +18,7 @@ connect()
 
 /////
 app.use(cors({
-    origin: true, 
+    origin: process.env.feURL, 
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
     credentials: true 
