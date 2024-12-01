@@ -1,6 +1,6 @@
 const chatMessageModel = require("../schemas/chatMessageSchema");
 const { chatWithObjectModel } = require("../schemas/chatWithObjectSchema");
-const { giveChatWithObject } = require("./addMessageTochatWith");
+const { giveChatWithObject } = require("./addMessageToChatWith");
 
 async function markSeen(req,res,next){
    await chatMessageModel.updateMany(
