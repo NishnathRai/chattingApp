@@ -9,6 +9,7 @@ const addMessageToDB = require("../functions/addMessageToDB");
 const sendChat = require("../functions/sendChats");
 const markSeen = require("../functions/markSeen");
 
+
 chatRouter.get("/chat", verifyAndAddUser ,async (req,res)=>{
     try{
         let data = await chatWithModel.findOne({userId:req?.body?.user?._id});
