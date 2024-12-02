@@ -12,10 +12,10 @@ async function addMessageToChatWith(req,res) {
        let modificationObjB = await giveChatWithObject(  req.body?.ToUserId , req.body?.user?._id );
        await addChatWithForB(modificationObjB,req.body?.message);
        res.send({message:"Done"});
-   }
+    }
    catch(err){
        res.status(500).send({"error":"500"})
-   }
+    }
 }
 
 
