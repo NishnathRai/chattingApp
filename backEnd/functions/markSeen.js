@@ -9,17 +9,17 @@ async function markSeen(req,res,next){
       { new : false }
    );
    ////
-   // let obj = await giveChatWithObject(  req.body?.user ,req.params?.id );
-   // if(obj.unReadMessagesCount==0 &&  obj.lastMessage.length==0 ){
-   //     await chatWithObjectModel.findByIdAndDelete(obj._id);
-   // }
-   // else {
-   //    await chatWithObjectModel.findByIdAndUpdate(
-   //      {_id:obj._id},
-   //      { unReadMessagesCount : 0 },
-   //      { new : false }
-   //    );
-   // }
+   let obj = await giveChatWithObject(   req.body?.user._id , req.params?.id  );
+   if(obj.unReadMessagesCount==0 &&  obj.lastMessage.length==0 ){
+       await chatWithObjectModel.findByIdAndDelete(obj._id);
+   }
+   else {
+      await chatWithObjectModel.findByIdAndUpdate(
+        {_id:obj._id},
+        { unReadMessagesCount : 0 },
+        { new : false }
+      );
+   }
    ////
    next();
 }
