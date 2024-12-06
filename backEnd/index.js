@@ -30,7 +30,8 @@ app.use(cookieParser());
 const userRouter = require("./routs/user.js");
 const feedRouter = require("./routs/feed.js");
 const chatRouter = require("./routs/chat.js");
-let arr = [ userRouter , feedRouter , chatRouter ];
+const statusRouter =require('./routs/status.js'); 
+let arr = [ userRouter , feedRouter , chatRouter  , statusRouter ];
 ////
 
 app.use( arr );
