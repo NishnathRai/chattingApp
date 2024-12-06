@@ -10,9 +10,9 @@ async function sendChat(req,res){
             ]
          })
         .sort({createdAt:-1})
-        // .skip(req.params?.skip)
-        // .limit(10);
-        res.send(chats);
+        .skip(req.params?.skip)
+        .limit(10);
+        res.send(chats.reverse());
     }
     catch(err){
         res.status(500).send({message:err.message});

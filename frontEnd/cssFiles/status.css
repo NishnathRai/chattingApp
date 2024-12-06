@@ -1,0 +1,35 @@
+.out-status-box{
+    height: 100%;
+    width: 100%;
+    background-color: white;
+}
+.status-h-20{
+    height: 20vh;
+}
+.status-h-20{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.status-bottom-box{
+    height: calc(100% - 35vh);
+    background-color: white;
+    overflow: scroll;
+}
+.my-statux-box{
+   height: 15vh;
+   background-color: blue;
+}
+.status-card{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    border: solid black 1px;
+    margin: 10px;
+}
+.status-brt{
+    font-weight: 800;
+}

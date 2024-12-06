@@ -12,7 +12,7 @@ async function sendMessage(message ,setMessage,ToUserId,getMessages){
          credentials:"include"
       });
       setMessage("");
-      getMessages();
+      getMessages(0);
    }
    catch(err) {
       console.log("error at sending message",err)

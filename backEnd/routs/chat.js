@@ -19,7 +19,8 @@ chatRouter.get("/chat", verifyAndAddUser ,async (req,res)=>{
         }
         data = await chatWithObjectModel.find({
             _id : { $in : data?.chatWith }
-        });
+        })
+        .sort({updatedAt:-1});
         res.send(data);
     }
     catch(err){
