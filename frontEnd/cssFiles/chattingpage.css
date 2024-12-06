@@ -28,7 +28,7 @@
 .main-messages{
     height: 80vh;
     background-color: white;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 .message-box{
     height: 10vh;
