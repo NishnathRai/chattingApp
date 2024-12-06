@@ -7,4 +7,5 @@ node_modules/
 # Ignoring dist
 dist
 
+#.env file  ( you can see me in readMe.txt 😅 )
 .env
