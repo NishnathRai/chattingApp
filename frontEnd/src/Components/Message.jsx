@@ -1,9 +1,11 @@
-function Message({message,time,seen,from,_id}){
+function Message({messageType,message,time,seen,from,_id}){
 
     return(<>
     <div  style={{...messageOuterBox , justifyContent:(from) ? "end" : ""  }} >
         <div style={messageInnerBoxStyle} >
-               <>{message}</>
+               <>{ messageType=='text' ?  message : <>
+                 <img src={message} />
+                 </>}</>
                <br/>
                <div style={bottomTime} > { from ? <> { time } { seen ?  "seen" : "sent" }</> : <>{ time }</> }  </div>
         </div>

@@ -16,7 +16,7 @@ function ChatCard({searchVal,lastMessage,unReadMessages,userId}){
          <div className="user-card-info" >
              <h1>Name : <span className="dark" >{name}</span></h1>
              <h1>Email : <span className="dark" >{email}</span></h1>
-             <h1>Last Message : <span className="dark" >{lastMessage}</span></h1>
+             <h1>Last Message : <span className="dark" >{lastMessage.length>10 ? lastMessage.slice(0,10)+"..." : lastMessage }</span></h1>
              <h1>UnRead Messages : <span className="dark" >{unReadMessages}</span></h1>
         </div>
      </div>

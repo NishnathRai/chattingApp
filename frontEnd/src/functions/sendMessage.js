@@ -1,4 +1,4 @@
-async function sendMessage(message ,setMessage,ToUserId,getMessages){
+async function sendMessage(message ,setMessage,ToUserId,getMessages,image){
    try{
       let a  = await fetch ( process.env.URL+"/sentMessage" , {
          method: 'POST',
@@ -7,7 +7,8 @@ async function sendMessage(message ,setMessage,ToUserId,getMessages){
          },
          body : JSON.stringify({
             message,
-            ToUserId
+            ToUserId,
+            messageType : (!image) ?  'text'  : 'image' ,
          }), 
          credentials:"include"
       });

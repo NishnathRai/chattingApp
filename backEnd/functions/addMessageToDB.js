@@ -5,7 +5,8 @@ async function addMessageToDB(req,res,next){
         let s = chatMessageModel({
             FromUserId : req.body.user._id,
             ToUserId : req.body.ToUserId,
-            message : req.body.message 
+            message : req.body.message,
+            messageType : req.body?.messageType || 'text' 
         });
         await s.save();
         next();
