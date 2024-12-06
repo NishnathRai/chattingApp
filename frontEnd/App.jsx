@@ -6,6 +6,7 @@ import store from "./src/store/store";
 import { Provider } from "react-redux";
 import ErrorPage from "./src/Components/ErrorPage";
 import ChattingPage from "./src/Components/ChattingPage";
+import ViewStatus from "./src/Components/ViewStatus";
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
     {
       path:"/chatWith/:UserId",
       element : <ChattingPage/>
+    },
+    {
+      path:"/viewStatus/:UserId",
+      element: <ViewStatus/>
     }
 ])
 

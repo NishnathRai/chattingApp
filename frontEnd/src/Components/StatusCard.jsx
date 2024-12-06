@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function StatusCard({_id}){
+function StatusCard({_id,searchVal}){
     
     let [name,setName]=useState("");
     async function getUserDetails() {
@@ -18,10 +18,13 @@ function StatusCard({_id}){
     },[]);
 
     return(<>
-    <div className="status-card" >
+    {
+        name.includes(searchVal) ?
+        <div className="status-card" >
         <div>Name of user :<span className="status-brt" > {name} </span></div>
         <div>Tap to view status</div>
-    </div>
+        </div> : <></>
+    }  
     </>)
 }
 

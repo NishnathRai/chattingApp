@@ -18,7 +18,9 @@ const statusSchema = new mongoose.Schema({
     expiresAt : {
         type : Date ,
         require : true ,
-    }
+        expires: 0 ,
+    },
+    views: [mongoose.Types.ObjectId] ,
 },  
 {
     timestamps:true,

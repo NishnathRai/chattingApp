@@ -1,6 +1,7 @@
 const express = require('express');
 const statusModel = require('../schemas/StatusSchema');
 const verifyAndAddUser = require("../functions/verifyAndAddUser");
+const { mongoose } = require('mongoose');
 const statusRouter = express.Router();
 
 statusRouter.get("/getStatus", verifyAndAddUser ,async (req,res)=>{
@@ -20,7 +21,7 @@ statusRouter.post("/addStatus", verifyAndAddUser ,async (req,res)=>{
             userId : req.body.user._id,
             StatusData : req.body.StatusData,
             typeOfStatus : req.body?.typeOfStatus ? req.body.typeOfStatus : 'text',
-            expiresAt : new Date( Date.now() + 24 * 60 * 60 ) ,
+            expiresAt : new Date( Date.now() + 60 * 60 * 1000 ) ,
         });
         await data.save();
         res.send({message:"Successuful"})
@@ -47,14 +48,19 @@ statusRouter.get("/getMyStatuc", verifyAndAddUser , async (req,res)=>{
 });
 
 statusRouter.get("/getUserStatusData/:userId", verifyAndAddUser ,async (req,res)=>{
-    let data = await statusModel.findById({
-        userId : req.params.userId,
-    });
-    if(data==null) {
-        res.send({message:"no data"});
-        return;
+    try{
+        let data = await statusModel.findOne({
+            userId :req.params.userId=="MyStatus" ? req.body.user._id :new mongoose.Types.ObjectId(req.params.userId),
+        });
+        if(data==null) {
+            res.send({message:"no data"});
+            return;
+        }
+        res.send(data);
     }
-    res.send(data);
+    catch(err){
+        res.status(500).send({message:"problem while getting into db"});
+    }
 })
 
 statusRouter.delete("/removeMyStatus",verifyAndAddUser,async (req,res)=>{
