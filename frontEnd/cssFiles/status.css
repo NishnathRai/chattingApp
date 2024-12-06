@@ -1,0 +1,50 @@
+.out-status-box{
+    height: 100%;
+    width: 100%;
+    background-color: white;
+}
+.status-h-20{
+    height: 15vh;
+}
+.status-h-20{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.status-bottom-box{
+    height: calc(100% - 30vh);
+    background-color: white;
+    overflow: scroll;
+}
+.my-statux-box{
+   height: 15vh;
+   background-color: white;
+   display: flex;
+   width: 100%;
+   overflow-x: scroll;
+   align-items: center;
+   justify-content: space-evenly;
+   border-bottom: solid black 1px;
+}
+.status-card{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    border: solid black 1px;
+    margin: 10px;
+}
+.status-brt{
+    font-weight: 800;
+}
+.but{
+    font-weight: 600;
+    height: max-content;
+    width: max-content;
+    margin-left: 20px;
+    padding: 20px 30px 20px 30px;
+    background-color: #0084ff;
+    border-radius: 20px;
+}
