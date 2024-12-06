@@ -16,7 +16,9 @@ function StatusPage(){
             <Input value={search} setValue={setSearch} placeHolder={"Search"} svg={SearchIcon} />
        </div>
        <div className="my-statux-box" >
-
+            {/* <button className="but" >Add Status</button> */}
+            <button className="but" >View My Status</button>
+            <button className="but" >Remove Status</button>
        </div>
        <div className="status-bottom-box" >
                <StatusCard/>

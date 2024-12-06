@@ -4,7 +4,7 @@
     background-color: white;
 }
 .status-h-20{
-    height: 20vh;
+    height: 15vh;
 }
 .status-h-20{
     display: flex;
@@ -12,13 +12,16 @@
     justify-content: center;
 }
 .status-bottom-box{
-    height: calc(100% - 35vh);
+    height: calc(100% - 30vh);
     background-color: white;
     overflow: scroll;
 }
 .my-statux-box{
    height: 15vh;
-   background-color: blue;
+   background-color: white;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 .status-card{
     height: 10vh;
@@ -32,4 +35,14 @@
 }
 .status-brt{
     font-weight: 800;
+}
+
+.but{
+    font-weight: 600;
+    height: max-content;
+    width: max-content;
+    padding: 20px 30px 20px 30px;
+    margin: 20px;
+    background-color: #0084ff;
+    border-radius: 20px;
 }
