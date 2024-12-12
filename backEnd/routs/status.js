@@ -61,7 +61,7 @@ statusRouter.get("/getUserStatusData/:userId", verifyAndAddUser ,async (req,res)
     catch(err){
         res.status(500).send({message:"problem while getting into db"});
     }
-})
+});
 
 statusRouter.delete("/removeMyStatus",verifyAndAddUser,async (req,res)=>{
     try{

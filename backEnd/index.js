@@ -27,6 +27,10 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 app.use(cookieParser());
 ////
+app.get("/",(req,res)=>{
+     res.send("Hello from Nishnath Rai 🚀");
+});
+////
 const userRouter = require("./routs/user.js");
 const feedRouter = require("./routs/feed.js");
 const chatRouter = require("./routs/chat.js");
