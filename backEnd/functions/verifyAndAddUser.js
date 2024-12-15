@@ -7,7 +7,7 @@ async function verifyAndAddUser(req,res,next){
          res.status(401).send();
          return;
     }
-    let decoded =  jwt.verify( token , process.env.jwtSecreat );
+    let decoded =  jwt.verify( token , process.env._JWTSECREAT );
     decoded = await userModel.findById(decoded._id).lean();
     if(decoded==null) {
         res.status(401).send();
