@@ -100,9 +100,10 @@ This project is a fully functional **Chat Application** built using **⚛️ Rea
    - Create a `.env` file in the backend folder and add:
      ```
      #BackEnd
-     _feURL = http://localhost:1234
-     _jwtSecreat = Nishnath
-     _db_URL = mongodb+srv://nishnathnishu1122:Nishnath%401@cluster0.sykfr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/Togethe
+     _FEURL = http://localhost:1234
+     _JWTSECREAT= Nishnath
+     #_DBURL = mongodb://localhost:27017/Together
+     _DBURL = mongodb+srv://nishnathnishu1122:Nishnath%401@cluster0.sykfr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/Together
      #FrontEnd
      URL = http://localhost:3000
      ```
