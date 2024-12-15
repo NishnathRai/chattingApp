@@ -99,11 +99,11 @@ This project is a fully functional **Chat Application** built using **⚛️ Rea
 4. Configure environment variables:
    - Create a `.env` file in the backend folder and add:
      ```
-     _BackEnd
-     feURL = http://localhost:1234
-     jwtSecreat = Nishnath
-     db_URL = mongodb+srv://nishnathnishu1122:Nishnath%401@cluster0.sykfr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/Togethe
-     _FrontEnd
+     #BackEnd
+     _feURL = http://localhost:1234
+     _jwtSecreat = Nishnath
+     _db_URL = mongodb+srv://nishnathnishu1122:Nishnath%401@cluster0.sykfr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/Togethe
+     #FrontEnd
      URL = http://localhost:3000
      ```
 
